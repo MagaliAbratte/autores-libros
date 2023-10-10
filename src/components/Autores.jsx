@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { AutoresList } from './AutoresList'
 
-
 export const Autores = () => {
 
   const handleListAutores = () =>{
@@ -24,7 +23,7 @@ export const Autores = () => {
       <button onClick={ handleListAutores }>Buscar</button>
 
       <div>
-        <AutoresList></AutoresList>
+        <AutoresList/>
       </div>
 
 
