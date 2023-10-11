@@ -5,9 +5,9 @@ export const Home = () => {
   return (
     <div>
         <h1>Bienvenidos al blog</h1>
-        <Link to= '/autores'>Autores</Link>
+        <Link to= '/autores'>Lista de autores</Link>
         <br />
-        <Link to= '/libros'>Libros</Link>
+        <Link to= '/libros'>Busqueda de libros y sus autores</Link>
     </div>
   )
 }
