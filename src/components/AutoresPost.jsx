@@ -14,7 +14,7 @@ export const AutoresPost = () => {
 
         console.log (requestOptions.body)
 
-        fetch('https://magaliabratte-001-site1.itempurl.com/api/autores', requestOptions)
+        fetch('https://localhost:7294/api/autores', requestOptions)
            /* .then(response => response.json())
             .then(data => console.log(data))
             .catch (error =>{
