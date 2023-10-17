@@ -43,10 +43,10 @@ export const AutoresPost = () => {
         onAddAutor()
     }
 
-    useEffect(() => {
+/*     useEffect(() => {
       onAddAutor()
     }, [])
-     
+      */
   return (
     <>
      <h3>Agrega un nuevo autor a la lista</h3>
