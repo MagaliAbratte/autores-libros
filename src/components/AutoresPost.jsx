@@ -42,11 +42,11 @@ export const AutoresPost = () => {
       e.preventDefault() 
         onAddAutor()
     }
-/* 
+
     useEffect(() => {
-      handleSubmit()
+      onAddAutor()
     }, [])
-     */
+     
   return (
     <>
      <h3>Agrega un nuevo autor a la lista</h3>
