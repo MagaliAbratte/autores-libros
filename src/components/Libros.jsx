@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { LibrosList } from './LibrosList'
-import { ComentariosList } from './ComentariosList'
+/* import { ComentariosList } from './ComentariosList' */
 
 export const Libros = () => {
 
@@ -10,28 +10,13 @@ export const Libros = () => {
        // return <ComentariosList/>;
     }
 
-    const handleListLibros = () =>{
-        console.log ('lista de libros')
-    }
-
     return (
     <>
     <Link to= '/'> Home </Link>
     <br />
       <h2>Encuentra sus libros y sus autores...</h2>
 
-      <form action="">
-        <input 
-          type="text" 
-          name="" 
-          placeholder='Nombre del libro...'
-          id="" />
-      </form>
-      <button onClick={ handleListLibros }>Buscar</button>
-
-      <div>
-        <LibrosList></LibrosList>
-      </div>
+      <LibrosList />
 
       <button onClick={ handleListComents }> Ver comentarios </button>
 

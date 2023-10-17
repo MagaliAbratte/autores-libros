@@ -47,6 +47,8 @@ export const AutoresPost = () => {
       onAddAutor()
     }, [])
       */
+
+    
   return (
     <>
      <h3>Agrega un nuevo autor a la lista</h3>
