@@ -38,16 +38,15 @@ export const AutoresPost = () => {
         setInputValue ( target.value)
     }
 
-    const handleSubmit = () =>{ 
-/*         e.preventDefault() */
+    const handleSubmit = (e) =>{ 
+      e.preventDefault() 
         onAddAutor()
     }
-
+/* 
     useEffect(() => {
       handleSubmit()
     }, [])
-    
-
+     */
   return (
     <>
      <h3>Agrega un nuevo autor a la lista</h3>
