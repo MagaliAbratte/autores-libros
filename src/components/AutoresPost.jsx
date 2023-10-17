@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 export const AutoresPost = () => {
 
     const [inputValue, setInputValue] = useState('')
 
     const onAddAutor = () =>{
-        
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -14,7 +13,7 @@ export const AutoresPost = () => {
 
         console.log (requestOptions.body)
 
-        fetch('https://localhost:7294/api/autores', requestOptions)
+        fetch('https://magaliabratte-001-site1.itempurl.com/api/autores', requestOptions)
            /* .then(response => response.json())
             .then(data => console.log(data))
             .catch (error =>{
@@ -39,10 +38,15 @@ export const AutoresPost = () => {
         setInputValue ( target.value)
     }
 
-    const handleSubmit = (e) =>{ 
-        e.preventDefault()
+    const handleSubmit = () =>{ 
+/*         e.preventDefault() */
         onAddAutor()
     }
+
+    useEffect(() => {
+      handleSubmit()
+    }, [])
+    
 
   return (
     <>

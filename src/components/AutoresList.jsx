@@ -5,7 +5,7 @@ export const AutoresList = () => {
 const [autores, setAutores] = useState([])
 
     const getAutores = async () => {
-      const url = "http://magaliabratte-001-site1.itempurl.com/api/autores"
+      const url = "https://magaliabratte-001-site1.itempurl.com/api/autores"
       const resp = await fetch(url);
       const data = await resp.json();
       const autoresData = data.map ( autor => ({
