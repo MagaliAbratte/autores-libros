@@ -22,15 +22,30 @@ const [autores, setAutores] = useState([])
   
   return (
     <>
-       <ol>
+
+   <div class="container text-center">
+     <div class="row">
+       <div class="col">
+         Column
+       </div>
+       <div class="col">
+         Column
+        </div>
+       <div class="col">
+         Column
+       </div>
+     </div>
+   </div>
+
+       <ul className='list-group list-group-horizontal'>
         {
           autores.map (autor =>(
-            <li key={autor.nombre}>
+            <li key={autor.nombre} className='list-group-item text-wrap' >
               {autor.nombre}
             </li>
           ))
         }
-       </ol>
+       </ul>
     </>
   )
 }

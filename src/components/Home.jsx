@@ -3,11 +3,16 @@ import { Link } from 'react-router-dom'
 
 export const Home = () => {
   return (
-    <div>
-        <h1>Bienvenidos al blog</h1>
-        <Link to= '/autores'>Lista de autores</Link>
-        <br />
-        <Link to= '/libros'>Busqueda de libros y sus autores</Link>
+    <div className='container'>
+        <h1 className='fs-1 text-center my-5 text-primary'>Bienvenidos al blog</h1>
+
+        <div className='btn-group d-flex justify-content-center '>
+         <Link to= '/autores' className='btn btn-outline-primary mb-4'>Lista de autores</Link>
+         <br />
+         <Link to= '/libros' className='btn btn-outline-primary mb-4'>Busqueda de libros y sus autores</Link>
+        </div>
+
+        
     </div>
   )
 }

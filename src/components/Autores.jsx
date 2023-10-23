@@ -3,21 +3,18 @@ import { Link } from 'react-router-dom'
 import { AutoresList } from './AutoresList'
 import { AutoresPost } from './AutoresPost'
 
+
 export const Autores = () => {
 
   return (
       <>
-      <Link to= '/'> Home </Link>
-      <br />
-      <h2>Listado de autores</h2>
-      <div>
+       <div className='container-fluid'>
+        <h2 className='fs-2 text-center my-5 text-primary'>Listado de autores</h2>
         <AutoresList/>
-      </div>
-      <div>
+       </div>
+       <div>
         <AutoresPost />
-      </div>
-
-
+       </div>
     </>
   )
 }
