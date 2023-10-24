@@ -8,7 +8,7 @@ import { NavBar } from './components/NavBar';
 
 function App() {
   return (
-    <>
+    <div className='back'>
       <BrowserRouter> 
          <NavBar />
          <Routes>
@@ -18,7 +18,7 @@ function App() {
          </Routes>
          <Footer />
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 

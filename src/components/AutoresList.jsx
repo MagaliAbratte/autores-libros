@@ -25,7 +25,7 @@ const [autores, setAutores] = useState([])
   
   return (
     <>
-      <div className='container'>
+      <div className='container' style={{marginBottom: 50}}>
         <Row xs={1} md={3} className="g-4 justify-content-center">
           {autores.map (autor =>(
             <Col className='text-center' key={autor.nombre}>
