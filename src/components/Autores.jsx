@@ -9,12 +9,13 @@ export const Autores = () => {
   return (
       <>
        <div className='container-fluid'>
-        <h2 className='fs-2 text-center my-5 text-primary'>Listado de autores</h2>
-        <AutoresList/>
-       </div>
        <div>
         <AutoresPost />
        </div>
+        <h2 className='fs-2 text-center my-5 text-primary'>Listado de autores</h2>
+        <AutoresList/>
+       </div>
+       
     </>
   )
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Button from 'react-bootstrap/Button';
 
 export const AutoresPost = () => {
 
@@ -51,15 +52,16 @@ export const AutoresPost = () => {
     
   return (
     <>
-     <h3>Agrega un nuevo autor a la lista</h3>
-     <form onSubmit={ handleSubmit } >
+     <h3 className='fs-2 text-center my-5 text-primary'>Agrega un nuevo autor a la lista</h3>
+     <form onSubmit={ handleSubmit } className='container justify-content-center' style={{display:'flex'}}>
         <input 
           type="text" 
           placeholder='Nombre del autor...'
           value={ inputValue }
           onChange={ handleInput }
+          className='form-control mx-2' style={{width: 300}}
           />
-       <button onClick={ onAddAutor }> Agregar </button>
+        <Button variant="primary" onClick={ onAddAutor }>Agregar</Button>{' '}
       </form>
     </>
   )

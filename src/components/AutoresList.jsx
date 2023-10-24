@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import Card from 'react-bootstrap/Card';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 export const AutoresList = () => {
 
@@ -22,30 +25,19 @@ const [autores, setAutores] = useState([])
   
   return (
     <>
-
-   <div class="container text-center">
-     <div class="row">
-       <div class="col">
-         Column
-       </div>
-       <div class="col">
-         Column
-        </div>
-       <div class="col">
-         Column
-       </div>
-     </div>
-   </div>
-
-       <ul className='list-group list-group-horizontal'>
-        {
-          autores.map (autor =>(
-            <li key={autor.nombre} className='list-group-item text-wrap' >
-              {autor.nombre}
-            </li>
-          ))
-        }
-       </ul>
+      <div className='container'>
+        <Row xs={1} md={3} className="g-4 justify-content-center">
+          {autores.map (autor =>(
+            <Col className='text-center' key={autor.nombre}>
+              <Card className='card-grid-colum'>
+                <Card.Body>
+                  <Card.Title className='text-center'>{autor.nombre}</Card.Title>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </div>
     </>
   )
 }

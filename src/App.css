@@ -1,3 +1,21 @@
+* { margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .btn{
     max-width: 30%
 } 
+
+.card-grid-colum{
+    width: 80%;
+}
+
+.my-footer{
+    width: 100%;
+    background-color: rgb(12, 12, 128);
+    color: azure;
+    padding: 7px;
+    font-style: italic;
+    margin-top: 50px;
+}
