@@ -19,7 +19,7 @@ export const Autores = () => {
        <div>
          <AutoresPost onNewAutor = { handleNewAutor } />
        </div>
-        <h2 className='fs-2 text-center my-5 text-primary'>Listado de autores</h2>
+        <h2 className='fs-2 text-center my-5 text-primary libreria'>Listado de autores</h2>
          {loading ? 
           <div className=' spinner text-center'>
            <Spinner animation="border"/>

@@ -45,7 +45,7 @@ export const AutoresPost = ( { onNewAutor } ) => {
 
   return (
     <>
-     <h3 className='fs-2 text-center my-5 text-primary'>Agrega un nuevo autor a la lista</h3>
+     <h3 className='fs-2 text-center my-5 text-primary libreria'>Agrega un nuevo autor a la lista</h3>
      <form onSubmit={ handleSubmit } className='container justify-content-center' style={{display:'flex'}}>
         <input 
           type="text" 
@@ -54,7 +54,7 @@ export const AutoresPost = ( { onNewAutor } ) => {
           onChange={ handleInput }
           className='form-control mx-2' style={{width: 300}}
           />
-        <Button variant="primary" onClick={ onAddAutor }>Agregar</Button>{' '}
+        <Button className='button' variant="primary" onClick={ onAddAutor }>Agregar</Button>{' '}
       </form>
     </>
   )

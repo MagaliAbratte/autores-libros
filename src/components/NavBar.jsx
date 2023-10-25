@@ -7,11 +7,11 @@ import { Link } from 'react-router-dom';
 export const NavBar = () => {
   return (
     <>
-     <Navbar bg="primary" data-bs-theme="dark">
-        <Container>
-          <Navbar.Brand href="#home">Blog Autores-Libros</Navbar.Brand>
-          <Nav className="me-auto">
-            <Link to= '/'>Home</Link>
+     <Navbar className='nav-bar d-flex justify-content-between' data-bs-theme="dark">
+        <Container className='container-nav'>
+          <Navbar.Brand href="#home" className='titulo-nav'>BLOG Autores-Libros</Navbar.Brand>
+          <Nav>
+            <Link to= '/' className='link-nav'>Home</Link>
           </Nav>
         </Container>
       </Navbar>

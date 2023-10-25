@@ -35,12 +35,14 @@ export const LibrosList = () => {
  */
 
 import React, { useState } from 'react';
+import { Button } from 'react-bootstrap';
 
 export const LibrosList = () => {
 
   const [inputValue, setInputValue] = useState('');
   const [libro, setLibro] = useState('')
   const [autores, setAutores] = useState([])
+  const [existeLibro, setExisteLibro] = useState(false)
 
   const handleLibrosList = async (event) => {
     event.preventDefault();
@@ -50,6 +52,7 @@ export const LibrosList = () => {
     try {
       const resp = await fetch(url);
       if (!resp.ok) {
+        alert('Error en la respuesta del servidor, intente más tarde')
         console.error('Error en la respuesta del servidor', resp.status);
         return;
       }
@@ -60,8 +63,10 @@ export const LibrosList = () => {
       const {nombre, autores} = data
       setLibro ({nombre})
       setAutores (autores) 
+      setExisteLibro(true)
 
     } catch (error) {
+      alert('No se encontró el libro, intente con otro id')
       console.error('Error al obtener los datos:', error);
     }
   };
@@ -70,26 +75,41 @@ export const LibrosList = () => {
     setInputValue(target.value);
   };
 
+  const handleListComents = () =>{
+    console.log('prueba');
+    
+   // return <ComentariosList/>;
+}
+
   return (
     <>
-      <form onSubmit={handleLibrosList}>
+      <form className='container justify-content-center' style={{display:'flex'}} onSubmit={handleLibrosList}>
         <input 
           type="text" 
           placeholder='Id del libro...'
           value={inputValue}
           onChange={handleInput}
+          className='form-control mx-2' style={{width: 300}}
+          name='buscador'
         />
-        <button>Buscar</button>
+        <button className='btn button text-white' variant="primary">Buscar</button>{' '}
       </form>
 
-      <h3>Nombre del libro y sus autores</h3>
-      <p>{libro.nombre}</p>
-      {
-        autores.map (autor => (
-          <li key={autor.nombre}>
-            {autor.nombre}
-          </li>
-        ))
+      {existeLibro
+      ? <div >
+        <hr />
+          <h4 className='text-center'>Nombre del libro: {libro.nombre}</h4>
+          {
+            autores.map (autor => (
+              <li key={autor.nombre} className='libreria text-center mt-4'>Autor: {autor.nombre}
+              </li>
+            ))
+          }
+          <div className='container justify-content-center text-center mt-5'>
+            <Button className='button' variant="primary" onClick={ handleListComents }> Ver comentarios </Button>
+          </div>
+        </div>
+        : ''
       }
     </>
   );

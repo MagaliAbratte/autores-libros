@@ -17,10 +17,10 @@ export const AutoresList = ({autor}) => {
   return (
     <>
       <div className='container' style={{marginBottom: 50}}>
-        <Row xs={1} md={3} className="g-4 justify-content-center">
+        <Row xs={1} md={4} className="g-4 justify-content-center">
           {autor.map (autor =>(
             <Col className='text-center' key={autor.id}>
-              <Card className='card-grid-colum'>
+              <Card className='card-grid-colum card-border'>
                 <Card.Body>
                   <Card.Title className='text-center'>{autor.nombre}</Card.Title>
                 </Card.Body>
