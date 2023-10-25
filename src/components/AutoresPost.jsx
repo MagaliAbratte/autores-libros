@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Button from 'react-bootstrap/Button';
 
-export const AutoresPost = () => {
+export const AutoresPost = ( {newAutor} ) => {
 
     const [inputValue, setInputValue] = useState('')
 
@@ -15,11 +15,6 @@ export const AutoresPost = () => {
         console.log (requestOptions.body)
 
         fetch('https://magaliabratte-001-site1.itempurl.com/api/autores', requestOptions)
-           /* .then(response => response.json())
-            .then(data => console.log(data))
-            .catch (error =>{
-                console.log(error);
-            })  */
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Error al añadir autor');
@@ -42,14 +37,14 @@ export const AutoresPost = () => {
     const handleSubmit = (e) =>{ 
       e.preventDefault() 
         onAddAutor()
+        newAutor (newAutor)
     }
 
-/*     useEffect(() => {
+    useEffect(() => {
       onAddAutor()
     }, [])
-      */
+      
 
-    
   return (
     <>
      <h3 className='fs-2 text-center my-5 text-primary'>Agrega un nuevo autor a la lista</h3>

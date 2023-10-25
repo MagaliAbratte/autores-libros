@@ -9,7 +9,7 @@ export const NavBar = () => {
     <>
      <Navbar bg="primary" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand href="#home">Autores</Navbar.Brand>
+          <Navbar.Brand href="#home">Blog Autores-Libros</Navbar.Brand>
           <Nav className="me-auto">
             <Link to= '/'>Home</Link>
           </Nav>
