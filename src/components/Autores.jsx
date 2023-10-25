@@ -1,23 +1,30 @@
 import React from 'react'
 import { AutoresList } from './AutoresList'
 import { AutoresPost } from './AutoresPost'
-import { useState } from 'react'
 import { useFetch } from '../hooks/useFetch'
+import Spinner from 'react-bootstrap/esm/Spinner'
 
 
 export const Autores = () => {
 
-  const { autores } = useFetch ()
-/*   const [autorNuevo, setAutorNuevo] = useState([]) */
+  const { autores, getAutores, loading} = useFetch()
+
+  const handleNewAutor = () =>{
+    getAutores()
+  }
 
   return (
       <>
        <div className='container-fluid'>
        <div>
-         <AutoresPost />
+         <AutoresPost onNewAutor = { handleNewAutor } />
        </div>
         <h2 className='fs-2 text-center my-5 text-primary'>Listado de autores</h2>
-         <AutoresList autor = {autores}/>
+         {loading ? 
+          <div className=' spinner text-center'>
+           <Spinner animation="border"/>
+          </div> 
+         : <AutoresList autor = {autores}/>}
        </div>
      </>
   )

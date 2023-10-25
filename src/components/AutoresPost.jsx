@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Button from 'react-bootstrap/Button';
 
-export const AutoresPost = ( {newAutor} ) => {
+export const AutoresPost = ( { onNewAutor } ) => {
 
     const [inputValue, setInputValue] = useState('')
 
@@ -24,6 +24,9 @@ export const AutoresPost = ( {newAutor} ) => {
             .then(data => {
                 setInputValue(''); 
                 console.log('Autor añadido:', data);
+                onNewAutor();
+
+                console.log('hola', onNewAutor())
             })
             .catch(error => {
                 console.log(error);
@@ -37,13 +40,8 @@ export const AutoresPost = ( {newAutor} ) => {
     const handleSubmit = (e) =>{ 
       e.preventDefault() 
         onAddAutor()
-        newAutor (newAutor)
+        onNewAutor (inputValue)
     }
-
-    useEffect(() => {
-      onAddAutor()
-    }, [])
-      
 
   return (
     <>

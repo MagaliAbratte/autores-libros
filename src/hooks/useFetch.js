@@ -1,4 +1,3 @@
-
 import { useState, useEffect} from 'react'
 
 export const useFetch = () => {
@@ -13,7 +12,8 @@ export const useFetch = () => {
         const data = await resp.json();
       
       const autoresData = data.map ( autor => ({
-        nombre: autor.nombre
+        nombre: autor.nombre,
+        id: autor.id
       }))
 
       return setAutores(autoresData)
@@ -30,9 +30,9 @@ export const useFetch = () => {
     getAutores();
   }, [])
   
-
   return {
     autores,
-    loading
+    loading,
+    getAutores,
   }
 }
