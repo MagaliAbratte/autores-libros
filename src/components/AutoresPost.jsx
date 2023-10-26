@@ -23,8 +23,6 @@ export const AutoresPost = ( { onNewAutor } ) => {
                 setInputValue(''); 
                 console.log('Autor añadido:', data);
                 onNewAutor();
-
-                console.log('hola', onNewAutor())
             })
             .catch(error => {
                 console.log(error);
