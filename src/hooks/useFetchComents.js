@@ -10,6 +10,7 @@ export const useFetchComents = ( inputValue ) => {
         const url = `https://magaliabratte-001-site1.itempurl.com/api/libros/${inputValue}/comentarios`
         const resp = await fetch(url);
         const data = await resp.json();
+        console.log(data)
       
       const comentariosData = data.map ( coment => ({
         id: coment.id,
@@ -32,7 +33,6 @@ export const useFetchComents = ( inputValue ) => {
   
   return {
     comentarios,
-    loading,
-    getComentarios,
+    loading
   }
 }
