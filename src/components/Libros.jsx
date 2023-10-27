@@ -9,7 +9,7 @@ export const Libros = () => {
 
     return (
     <>
-      <h2 className='fs-2 text-center my-5 text-primary libreria'>Encuentra sus libros y sus autores...</h2>
+      <h2 className='fs-2 text-center my-5 text-primary libreria'>Encuentre libros y sus autores:</h2>
 
       <LibrosList />
     </>

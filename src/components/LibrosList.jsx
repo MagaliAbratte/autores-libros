@@ -1,41 +1,6 @@
-/* import React from 'react'
-import { useState } from 'react'
-
-export const LibrosList = () => {
-
-  const [inputValue, setInputValue] = useState('')
-
-  const handleLibrosList = async () =>{
-
-    const url = `https://localhost:7294/api/libros/${inputValue}`
-    const resp = await fetch(url);
-    const data = await resp.json();
-    console.log(data);
-
-  }
-
-  const handleInput = ( {target} ) =>{
-    setInputValue ( target.value)
-}
-
-  return (
-    <>
-    <form onSubmit={ handleLibrosList }>
-        <input 
-          type="text" 
-          placeholder='Nombre del libro...'
-          value={inputValue}
-          onChange={ handleInput }
-          />
-       <button> Buscar </button>
-      </form>
-    </>
-  )
-}
- */
-
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
+import { Comentarios } from './Comentarios';
 
 export const LibrosList = () => {
 
@@ -43,6 +8,7 @@ export const LibrosList = () => {
   const [libro, setLibro] = useState('')
   const [autores, setAutores] = useState([])
   const [existeLibro, setExisteLibro] = useState(false)
+  const [existeComentario, setExisteComentario] = useState(false)
 
   const handleLibrosList = async (event) => {
     event.preventDefault();
@@ -76,10 +42,8 @@ export const LibrosList = () => {
   };
 
   const handleListComents = () =>{
-    console.log('prueba');
-    
-   // return <ComentariosList/>;
-}
+    setExisteComentario(true)
+  }
 
   return (
     <>
@@ -105,11 +69,21 @@ export const LibrosList = () => {
               </li>
             ))
           }
+          {/* <div>
+            <Comentarios inputValue = {inputValue}/>
+          </div> */}
+
           <div className='container justify-content-center text-center mt-5'>
             <Button className='button' variant="primary" onClick={ handleListComents }> Ver comentarios </Button>
           </div>
         </div>
         : ''
+      }
+      {existeComentario
+      ? <div>
+        <Comentarios inputValue={inputValue}/>
+      </div>
+      : ''
       }
     </>
   );
