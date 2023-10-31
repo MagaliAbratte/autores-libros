@@ -7,8 +7,14 @@ export const useFetch = () => {
 
     const getAutores = async () => {
       try {
+       const token = localStorage.getItem("token");
+       const headers = new Headers({
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        });
+
         const url = "https://magaliabratte-001-site1.itempurl.com/api/autores"
-        const resp = await fetch(url);
+        const resp = await fetch(url, { headers: headers });
         const data = await resp.json();
       
       const autoresData = data.map ( autor => ({
