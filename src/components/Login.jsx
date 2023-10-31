@@ -1,40 +1,53 @@
 import React, {useState, useEffect} from 'react';
-import Cookies from 'universal-cookie';
-import axios from 'axios';
+import jwt_decode from 'jwt-decode';
+import { Link, Navigate, redirect, useHistory, useNavigate } from 'react-router-dom'
 
-function Login(props) {
+function Login() {
 
-const baseUrl="https://localhost:44322/api/usuarios";
-const cookies = new Cookies();
+  //const history = useHistory();
+  let navigate = useNavigate();
 
-const [form, setForm]=useState({
-  username:'',
-  password: ''
-});
-  const handleChange=e=>{
- const {name, value} = e.target;
- setForm({
-   ...form,
-   [name]: value
- });
-  }
+const [username, setUsername] = useState("");
+const [password, setPassword] = useState("");
 
-const iniciarSesion=async()=>{
+// const [form, setForm]=useState({
+//   username:'',
+//   password: ''
+// });
+//   const handleChange=e=>{
+//  const {name, value} = e.target;
+//  setForm({
+//    ...form,
+//    [name]: value
+//  });
+//   }
 
-    const url = "https://magaliabratte-001-site1.itempurl.com/api/cuentas/registrar"
-    const resp = await fetch(url)
+const iniciarSesion = async()=>{
+
+    const url = "https://magaliabratte-001-site1.itempurl.com/api/cuentas/login"
+
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({"email": username, "password": password})
+    };
+
+    console.log(requestOptions)
+    await fetch(url, requestOptions)
     .then(response=>{
-      return response.data;
-    }).then(response=>{
-      if(response.length>0){
-        var respuesta=response[0];
-        cookies.set('id', respuesta.id, {path: '/'});
-        cookies.set('apellido_paterno', respuesta.apellido_paterno, {path: '/'});
-        alert("Bienvenido: "+respuesta.nombre+" "+respuesta.apellido_paterno);
-        props.history.push('/menu');
-      }else{
-        alert('El usuario o la contraseña no son correctos');
+      console.log(response)
+      if(!response.ok) {
+      alert('Usuario inválido')
+      } else {
+      return response.json()
       }
+    }).then(response=>{
+      const { token, expiracion } = response;
+      localStorage.setItem("token", token);
+      localStorage.setItem("expiracion", expiracion)
+      //redirect("/home")
+      //history.push('/home');
+      navigate('/home')
     })
 
     .catch(error=>{
@@ -42,15 +55,9 @@ const iniciarSesion=async()=>{
     })
   }
 
-  useEffect(()=>{
-if(cookies.get('id')){
-  props.history.push('/menu');
-}
-  },[]);
-
     return (
-        <div className="containerPrincipal">
-        <div className="containerLogin">
+        <div className="container">
+        <div className="container">
           <div className="form-group">
             <label>Usuario: </label>
             <br />
@@ -58,7 +65,8 @@ if(cookies.get('id')){
               type="text"
               className="form-control"
               name="username"
-              onChange={handleChange}
+              value = {username}
+              onChange={e => setUsername(e.target.value)}
             />
             <br />
             <label>Contraseña: </label>
@@ -67,9 +75,11 @@ if(cookies.get('id')){
               type="password"
               className="form-control"
               name="password"
-              onChange={handleChange}
+              value={password}
+              onChange={e => setPassword(e.target.value)}
             />
             <br />
+            {/* <Link to= '/home' onClick={()=>iniciarSesion()}> Iniciar sesión</Link> */}
             <button className="btn btn-primary" onClick={()=>iniciarSesion()}>Iniciar Sesión</button>
           </div>
         </div>
