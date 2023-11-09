@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom'
 import libros from "../assets/background.jpg"
 
 export const Home = () => {
+
+  
+
   return (
     <div className='container back'>
         <h1 className='fs-1 text-center my-5 text-primary libreria'>Bienvenidos al blog</h1>

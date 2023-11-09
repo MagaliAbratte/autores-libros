@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react';
-import jwt_decode from 'jwt-decode';
-import { Link, Navigate, redirect, useHistory, useNavigate } from 'react-router-dom'
+import React, { useState } from 'react';
+import { useJwt } from 'react-jwt';
+import { useNavigate } from 'react-router-dom'
 
 function Login() {
 
@@ -42,12 +42,14 @@ const iniciarSesion = async()=>{
       return response.json()
       }
     }).then(response=>{
-      const { token, expiracion } = response;
-      localStorage.setItem("token", token);
-      localStorage.setItem("expiracion", expiracion)
-      //redirect("/home")
-      //history.push('/home');
-      navigate('/home')
+      const { decodedToken, isExpired } = useJwt(response.token);
+      if(decodedToken.email === username && decodedToken.password === password){
+        localStorage.setItem("token", decodedToken);
+        navigate('/home')
+        return true;
+      } else {
+        console.error('Credenciales incorrectas')
+      }
     })
 
     .catch(error=>{
